@@ -15,7 +15,9 @@ An ethernet simulator written in Java, for CIS*2460
  - #frames is the number of arriving frames to be simulated
  - arrival_rate is the mean number of arrival frames per 100 slot times
 
+
 	java Ethernet seed N #frames arrival_rate
+
 
 ### OUTPUT:
  - A table with info about the current simulation will be shown,
