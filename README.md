@@ -1,13 +1,12 @@
-	# Ethernet
+# Ethernet
 
 An ethernet simulator written in Java, for CIS*2460
 
-
-	## To compile
+## To compile
 
 	javac *.java
 
-	## To run
+## To run
 
 	/*	INPUT:
 	 	seed is the seed of a random number generator (if seed = 0, a random seed is used)
