@@ -15,6 +15,7 @@ public class Ethernet {
 
 	public FrameList frames;
 	public EventList events;
+	public DeviceList devices;
 	public double currTime_mus;
 	public int frames_simulated;
 	public double bytes_sent;
@@ -41,6 +42,8 @@ public class Ethernet {
 		frames = new FrameList(rand, num_frames, bpmus, arrival_rate);
 		//create the event list, which will contain the frames and their arrival
 		events = new EventList(frames, currTime_mus);
+		//finally, initialize the devices
+		devices = new DeviceList(n);
 
 	}
 
