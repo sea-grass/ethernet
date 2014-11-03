@@ -11,7 +11,7 @@ public class DeviceList {
 		double sum = 0;
 
 		for (int i = 0; i < numDevices; i++) {
-			devices.add(new Device(p));
+			devices.add(new Device(p, i));
 			System.out.println(p);
 			sum += p;
 
@@ -23,6 +23,12 @@ public class DeviceList {
 	public int length() {
 		return devices.size();
 	}
+  public void add(Device newDevice) {
+    this.devices.add(newDevice);
+  }
+  public Device get(int index) {
+    return devices.get(index);
+  }
 
 	/* Given a randomDouble, iterate through the devices and find one that fits the following:
 		Choose device[i] iff:
@@ -33,10 +39,11 @@ public class DeviceList {
 	*/
 	public int getFreeSenderIndex(double randomDouble) {
 		//Try to delegate to device according to probability
-		if (randomDouble >= this.get(0) && randomDouble < this.get(1)) {			System.out.println("Should go to index 0!!");
+		if (randomDouble >= this.get(0).getProbability() && randomDouble < this.get(1).getProbability()) {			System.out.println("Should go to index 0!!");
 		} else {
 			for (int i = 1; i < this.length() - 1; i++) {
-				if (randomDouble >= this.get(i)
+				if (randomDouble >= this.get(i).getProbability())
+          System.out.println("doin nothin");
 					//DONE 
 			}
 		}
@@ -48,6 +55,7 @@ public class DeviceList {
 
 			System.out.println("delegate: rand: " + randomDouble);
 		}
+    return -1;
 	}
 
 	/* Iterates through the current device list and returns a new one with only free devices */
@@ -65,7 +73,7 @@ public class DeviceList {
 	public int numFreeDevices() {
 		int count = 0;
 		for (int i = 0; i < this.length(); i++) {
-			if(this.get(i).isFree) {
+			if(this.get(i).isFree()) {
 				count++;
 			}
 		}

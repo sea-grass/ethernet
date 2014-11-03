@@ -9,7 +9,11 @@ public class Device {
 		state = 0;	//Starts off free
 	}
 
+  //If state is 0 (free), return true
 	public Boolean isFree() {
-		return !state;
+		return state == 0 ? true : false;
 	}
+  public double getProbability() {
+    return this.p;
+  }
 }
